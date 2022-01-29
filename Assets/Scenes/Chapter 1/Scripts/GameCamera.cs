@@ -3,14 +3,18 @@ using UnityEngine;
 public class GameCamera : LunariaBehaviour {
 
     public SpriteRenderer backgroundSpriteRenderer;
+    public Camera Camera;
     public Bounds BackgroundBounds { get; private set; }
+    public SpriteRenderer Dialogue;
 
     void Start() {
-        Camera camera = GetComponent<Camera>();
+        Dialogue = GetComponentInChildren<SpriteRenderer>();
 
-        float orthographicSize = camera.orthographicSize;
-        float height = 2f * camera.orthographicSize;
-        float width = height * camera.aspect;
+        Camera = GetComponent<Camera>();
+
+        float orthographicSize = Camera.orthographicSize;
+        float height = 2f * Camera.orthographicSize;
+        float width = height * Camera.aspect;
 
         BackgroundBounds = new Bounds(Vector3.zero, new Vector3(
             backgroundSpriteRenderer.size.x * backgroundSpriteRenderer.transform.localScale.x / 2 - width / 2,

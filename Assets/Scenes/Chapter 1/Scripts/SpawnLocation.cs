@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 
-[System.Serializable]
+[Serializable]
 public class SpawnLocation {
     public string LastLevelName;
     public Vector2 Location;

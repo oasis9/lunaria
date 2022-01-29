@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -6,11 +7,14 @@ public class Player : LunariaBehaviour {
 
     // Properties
     public Vector2 Speed = Vector2.one;
-    public LayerMask HideLayers;
+    public Vector2 ScaleRange = new Vector2(0.3f, 0.3f);
+    public SpriteBatch Sprites = new SpriteBatch();
+    public SpriteRenderer PinP;
     public KeyCode[] MoveUp = { KeyCode.UpArrow, KeyCode.W };
     public KeyCode[] MoveLeft = { KeyCode.LeftArrow, KeyCode.A };
     public KeyCode[] MoveDown = { KeyCode.DownArrow, KeyCode.S };
     public KeyCode[] MoveRight = { KeyCode.RightArrow, KeyCode.D };
+    public StepSounds[] StepSounds = new StepSounds[0];
 
     // Components
     public SpriteRenderer Renderer;
@@ -35,9 +39,15 @@ public class Player : LunariaBehaviour {
     }
 
     public virtual void Update() {
+        if (Lunaria.Interaction != null) return;
+
         Rigidbody.velocity = Vector2.zero;
 
-        if (Animator.GetInteger("State") != (int) AnimationState.Idle) Animator.SetInteger("State", (int)AnimationState.Idle);
+        MovePlayer();
+    }
+
+    private void MovePlayer() {
+        if (Animator.GetInteger("State") != (int)AnimationState.Idle) Animator.SetInteger("State", (int)AnimationState.Idle);
 
         bool movingUp = MoveUp.Any(key => Input.GetKey(key));
         bool movingLeft = MoveLeft.Any(key => Input.GetKey(key));
@@ -57,13 +67,33 @@ public class Player : LunariaBehaviour {
             }
         }
 
+        FlipPlayer();
+        ScalePlayer();
+        FocusCamera();
+        PlayStepSounds();
+    }
+
+    private void FlipPlayer() {
         if (MoveLeft.Any(key => Input.GetKeyDown(key))) Renderer.flipX = false;
         if (MoveRight.Any(key => Input.GetKeyDown(key))) Renderer.flipX = true;
+    }
 
+    private void ScalePlayer() {
+        float scale = ScaleRange.x + (ScaleRange.y - ScaleRange.x)
+            * Mathf.Clamp(
+            (Lunaria.GameCamera.BackgroundBounds.size.y - transform.position.y + Lunaria.GameCamera.BackgroundBounds.size.y / 2)
+            / Lunaria.GameCamera.BackgroundBounds.size.y, 0, 1);
+        transform.localScale = new Vector2(scale, scale);
+    }
+
+    private void FocusCamera() {
         GameCamera camera = Lunaria.GameCamera;
         camera.Focus(transform.position);
+    }
 
+    private void PlayStepSounds() {
         if ((hit = Physics2D.Raycast(transform.position, transform.forward, 1000f)).collider != null) {
+            Debug.Log("Potato");
             SpriteRenderer backgroundRenderer = hit.collider.GetComponent<SpriteRenderer>();
             Texture2D backgroundTexture = backgroundRenderer.sprite.texture;
 
@@ -85,38 +115,36 @@ public class Player : LunariaBehaviour {
                 (int)point.x,
                 (int)point.y);
 
-            Renderer.color = color;
+            Texture2D sample = new Texture2D(150, 150);
+            sample.SetPixels(backgroundTexture.GetPixels(
+                (int)Mathf.Clamp(point.x - 75, 0, backgroundTexture.width - 150),
+                (int)Mathf.Clamp(point.y - 75, 0, backgroundTexture.height - 150),
+                sample.width,
+                sample.height));
 
-            //Texture2D sample = new Texture2D(150, 150);
-            //sample.SetPixels(backgroundTexture.GetPixels(
-            //    (int)Mathf.Clamp(point.x - 75, 0, backgroundTexture.width - 150),
-            //    (int)Mathf.Clamp(point.y - 75, 0, backgroundTexture.height - 150),
-            //    sample.width,
-            //    sample.height));
+            int centreSize = 10;
+            Color[] centre = new Color[centreSize * centreSize];
+            Color highlight = Color.white;
+            for (int i = 0; i < centre.Length; i++) {
+                centre[i] = highlight;
+            }
+            sample.SetPixels(
+                sample.width / 2 - centreSize / 2,
+                sample.height / 2 - centreSize / 2,
+                centreSize,
+                centreSize,
+                centre);
 
-            //int centreSize = 10;
-            //Color[] centre = new Color[centreSize * centreSize];
-            //Color highlight = Color.white;
-            //for (int i = 0; i < centre.Length; i++) {
-            //    centre[i] = highlight;
-            //}
-            //sample.SetPixels(
-            //    sample.width / 2 - centreSize / 2,
-            //    sample.height / 2 - centreSize / 2,
-            //    centreSize,
-            //    centreSize,
-            //    centre);
+            sample.Apply();
 
-            //sample.Apply();
-
-            //ColorSquare.sprite = Sprite.Create(
-            //    sample,
-            //    new Rect(
-            //        0,
-            //        0,
-            //        sample.width,
-            //        sample.height),
-            //    Vector2.zero);
+            PinP.sprite = Sprite.Create(
+                sample,
+                new Rect(
+                    0,
+                    0,
+                    sample.width,
+                    sample.height),
+                Vector2.zero);
         }
     }
 

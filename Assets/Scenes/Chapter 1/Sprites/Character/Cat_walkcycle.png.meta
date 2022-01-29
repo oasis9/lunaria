@@ -11,6 +11,9 @@ TextureImporter:
   - first:
       213: -1210198952926135743
     second: Cat_walkcycle_2
+  - first:
+      213: 3366348960349371613
+    second: Cat_walkcycle_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -29,7 +32,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -108,7 +111,7 @@ TextureImporter:
         width: 320
         height: 718
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -129,7 +132,7 @@ TextureImporter:
         width: 329
         height: 726
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -137,6 +140,27 @@ TextureImporter:
       bones: []
       spriteID: 14ab947d672843fe0800000000000000
       internalID: -1210198952926135743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat_walkcycle_3
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 32
+        width: 325
+        height: 719
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddc31a33b8ca7be20800000000000000
+      internalID: 3366348960349371613
       vertices: []
       indices: 
       edges: []
