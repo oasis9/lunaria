@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Chapter 1/The Demon Core.unity
+    path: Assets/Scenes/Chapter 1/Lunarium/Lunarium.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Chapter 1/Midgrounds/Midgrounds.unity
+    guid: 9aa4ff5ce0a3b544a88df19fecf59a3d
+  - enabled: 1
+    path: Assets/Scenes/Chapter 1/Waterfall/Waterfall.unity
+    guid: 55ae54f1f9233514ab390b013d29c138
   m_configObjects: {}
