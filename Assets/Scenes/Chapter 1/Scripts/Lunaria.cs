@@ -44,6 +44,14 @@ public class Lunaria : MonoBehaviour {
         return !StopMovement && GetKeys(keys);
     }
 
+
+    public bool IsMoving() {
+        return IsMovingUp()
+            || IsMovingLeft()
+            || IsMovingDown()
+            || IsMovingRight();
+    }
+
     public bool DidStartMovingUp() {
         return DidStartMoving(MoveUp);
     }
@@ -82,15 +90,36 @@ public class Lunaria : MonoBehaviour {
     public bool DidStartDialogueProgression() {
         return !StopDialogueProgression && GetKeysDown(DialogueProgression);
     }
+    public bool IsDialogueProgression() {
+        return !StopDialogueProgression && GetKeys(DialogueProgression);
+    }
 
-    public void StartInteraction(Dialogue[] dialogues, int i) {
+    public void ShowDialogues(Dialogue[] dialogues, int i) {
         if (dialogues.Length > i) {
-            if (dialogues.Length > i + 1) dialogues[i].Next = NextInteraction(dialogues, i + 1);
+            if (dialogues.Length > i + 1 && dialogues[i].Next == null) dialogues[i].Next = NextInteraction(dialogues, i + 1);
+            if (dialogues[dialogues.Length - 1].Next == null) {
+                dialogues[dialogues.Length - 1].Next = () => {
+                    OngoingDialogue = null;
+                    GameCamera.Dialogue.sprite = null;
+                    StopMovement = StopInteraction = false;
+                };
+            }
             ShowDialogue(dialogues[i]);
         }
     }
 
+    public void ShowDialogues(Dialogue[] dialogues, int i, Action finished) {
+        dialogues[dialogues.Length - 1].Next = () => {
+            OngoingDialogue = null;
+            GameCamera.Dialogue.sprite = null;
+            finished();
+        };
+        ShowDialogues(dialogues, i);
+    }
+
     public void ShowDialogue(Dialogue dialogue) {
+        StopMovement = StopInteraction = true;
+
         OngoingDialogue = dialogue;
 
         Debug.Log(OngoingDialogue.Name);
@@ -103,16 +132,18 @@ public class Lunaria : MonoBehaviour {
 
         float orthographicSize = GameCamera.Camera.orthographicSize;
         float height = 2f * GameCamera.Camera.orthographicSize;
-
-        GameCamera.Dialogue.transform.localPosition = new Vector2(0, height - GameCamera.Dialogue.size.y / 2);
         //GameCamera.Dialogue.transform.position = Interaction.DialogueOffset;
+
+        GameCamera.Dialogue.transform.localPosition = new Vector2(0, -height);
     }
 
     public Action NextInteraction(Dialogue[] dialogues, int i) {
         return () => {
             if (dialogues.Length > i) {
-                if (dialogues.Length > i + 1) dialogues[i].Next = NextInteraction(dialogues, i);
+                if (dialogues.Length > i + 1 && dialogues[i].Next == null) dialogues[i].Next = NextInteraction(dialogues, i);
                 ShowDialogue(dialogues[i]);
+            } else {
+                OngoingDialogue = null;
             }
         };
     }

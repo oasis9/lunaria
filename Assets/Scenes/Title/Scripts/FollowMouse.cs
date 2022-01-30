@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-public class FollowMouse : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class FollowMouse : LunariaBehaviour {
+    void Start() {
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
+        transform.position = Lunaria.GameCamera.Camera.ScreenToWorldPoint(Input.mousePosition);
     }
 }

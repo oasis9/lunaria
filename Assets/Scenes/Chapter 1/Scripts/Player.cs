@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class Player : LunariaBehaviour {
@@ -16,6 +14,8 @@ public class Player : LunariaBehaviour {
     public SpriteRenderer Renderer;
     public Rigidbody2D Rigidbody;
     public Animator Animator;
+    public AudioSource AudioSource;
+    public double SoundEndTimestamp;
 
     private Vector2 backgroundSize;
     private Vector2 backgroundScale;
@@ -26,6 +26,7 @@ public class Player : LunariaBehaviour {
         if (Renderer == null) Renderer = GetComponent<SpriteRenderer>();
         if (Rigidbody == null) Rigidbody = GetComponent<Rigidbody2D>();
         if (Animator == null) Animator = GetComponent<Animator>();
+        if (AudioSource == null) AudioSource = GetComponent<AudioSource>();
     }
 
     public virtual void Update() {
@@ -148,6 +149,12 @@ public class Player : LunariaBehaviour {
         Rigidbody.velocity += velocity * Speed;
 
         Animator.SetInteger("State", (int) AnimationState.Walking);
+    }
+
+    public void Play(AudioClip audioClip) {
+        AudioSource.clip = audioClip;
+        SoundEndTimestamp = Time.time + audioClip.length;
+        AudioSource.Play();
     }
 
     private enum AnimationState {

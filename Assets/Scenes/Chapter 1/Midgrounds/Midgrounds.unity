@@ -195,8 +195,109 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2067294540}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &225006182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 225006183}
+  - component: {fileID: 225006185}
+  - component: {fileID: 225006184}
+  m_Layer: 2
+  m_Name: Stone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &225006183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225006182}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.62044823, y: -2.857108, z: -69.88043}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2067294540}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &225006184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225006182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ca5c3472369f646987c8d47d76acc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lunaria: {fileID: 0}
+  Name: Stone
+  SoundPool:
+  - {fileID: 8300000, guid: 7ce8830544dee2445ae883672d168239, type: 3}
+  - {fileID: 8300000, guid: a2c590a04a6de784a9cc68181d535617, type: 3}
+  - {fileID: 8300000, guid: 12fbab2e4853b294f8d31b45a8d3d4ff, type: 3}
+--- !u!60 &225006185
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225006182}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 5.178593, y: -0.5820017}
+      - {x: 4.034325, y: -0.029858828}
+      - {x: 2.2382119, y: -0.026702762}
+      - {x: 1.4218177, y: 2.4579923}
+      - {x: -0.894194, y: 3.1326919}
+      - {x: -2.4209597, y: 2.4882133}
+      - {x: 0.7386896, y: 1.9207361}
+      - {x: 1.4651073, y: 0.23930812}
+      - {x: 1.1209555, y: -0.19893932}
+      - {x: 0.44132257, y: -0.43108535}
+      - {x: -0.9305225, y: -0.14273235}
+      - {x: -1.8677431, y: 0.5971217}
+      - {x: -2.077972, y: 1.3031075}
+      - {x: -3.3607645, y: 1.7404244}
+      - {x: -4.1066, y: 2.2159626}
+      - {x: -3.9775276, y: 1.3436285}
+      - {x: -4.3884006, y: 0.647439}
+      - {x: -5.56844, y: 0.42131257}
+      - {x: -4.4813957, y: -0.5516789}
+      - {x: -7.434102, y: -3.5270624}
+      - {x: -9.763504, y: -4.7189574}
+      - {x: -9.713365, y: -5.880129}
+      - {x: -6.665865, y: -5.83986}
+      - {x: -1.6983815, y: -1.225812}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 9.821768, y: -0.7176855}
 --- !u!1 &354435295
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +426,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -5.0676546, y: 0.6962586}
+  m_Offset: {x: -5.1093526, y: 0.6962586}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -336,7 +437,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9821372, y: 0.6738461}
+  m_Size: {x: 0.7319498, y: 0.6738461}
   m_EdgeRadius: 0
 --- !u!114 &512868548
 MonoBehaviour:
@@ -395,6 +496,7 @@ MonoBehaviour:
   Lunaria: {fileID: 0}
   Camera: {fileID: 0}
   Dialogue: {fileID: 0}
+  Move: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -422,7 +524,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 4.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -604,7 +706,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 640539769}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.98, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 0.229806, y: 0.229806, z: 0.459612}
   m_Children:
   - {fileID: 354435296}
@@ -868,7 +970,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2067294540}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1087677605
 MonoBehaviour:
@@ -1331,6 +1433,8 @@ MonoBehaviour:
   Renderer: {fileID: 1483430117}
   Rigidbody: {fileID: 0}
   Animator: {fileID: 1483430116}
+  AudioSource: {fileID: 0}
+  SoundEndTimestamp: 0
 --- !u!50 &1711052484
 Rigidbody2D:
   serializedVersion: 4
@@ -1723,7 +1827,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 9.075464, y: -3.1746335}
+  m_Offset: {x: 9.100483, y: -3.1245956}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1734,7 +1838,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0399208, y: 0.8042078}
+  m_Size: {x: 0.72301483, y: 0.5039823}
   m_EdgeRadius: 0
 --- !u!114 &1966715966
 MonoBehaviour:
@@ -1750,7 +1854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lunaria: {fileID: 0}
   Interactions:
-  - Name: Artist Conspiracy
+  - Name: Where Friend
     Sprite: {fileID: 0}
     FacingRight: 1
     DialogueSprite: {fileID: 21300000, guid: 6a4388775c66aea449997f4846aa74ac, type: 3}
@@ -1758,7 +1862,7 @@ MonoBehaviour:
   - Name: Artist Conspiracy
     Sprite: {fileID: 0}
     FacingRight: 1
-    DialogueSprite: {fileID: 21300000, guid: 6a4388775c66aea449997f4846aa74ac, type: 3}
+    DialogueSprite: {fileID: 21300000, guid: 5c72e7017ced8b449adc4a24336ea6c8, type: 3}
     DialogueOffset: {x: 0, y: 0}
   FacingRight: 1
 --- !u!1 &2067294538
@@ -1820,6 +1924,7 @@ Transform:
   - {fileID: 1223991474}
   - {fileID: 1966715964}
   - {fileID: 512868546}
+  - {fileID: 225006183}
   - {fileID: 1087677604}
   - {fileID: 69711385}
   m_Father: {fileID: 0}

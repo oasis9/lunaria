@@ -5,6 +5,7 @@ public class GameCamera : LunariaBehaviour {
     public Camera Camera;
     public Bounds CameraMovementBounds { get; private set; }
     public SpriteRenderer Dialogue;
+    public bool Move = true;
 
     void Start() {
         if (Dialogue == null) Dialogue = GetComponentInChildren<SpriteRenderer>();
@@ -19,6 +20,8 @@ public class GameCamera : LunariaBehaviour {
             Lunaria.Background.Bounds.size.x - width / 2,
             Lunaria.Background.Bounds.size.y - height / 2));
 
+        if (!Move) return;
+
         transform.position = new Vector3(
             CameraMovementBounds.size.x,
             CameraMovementBounds.size.y,
@@ -26,6 +29,8 @@ public class GameCamera : LunariaBehaviour {
     }
 
     public void Focus(Vector2 focus) {
+        if (!Move) return;
+
         transform.position = new Vector3(
             Mathf.Clamp(
                 focus.x,

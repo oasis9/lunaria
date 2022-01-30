@@ -26,7 +26,10 @@ public class Door : Interactable {
 
             StartCoroutine(Delayed(audioSource.clip.length, () => {
                 if (Interactions.Length > 0) {
-                    StartCoroutine(Delayed(1, () => Lunaria.StartInteraction(Interactions, 0)));
+                    StartCoroutine(Delayed(1, () => Lunaria.ShowDialogues(Interactions, 0, () => {
+                        Lunaria.Player.Animator.enabled = true;
+                        Lunaria.StopMovement = Lunaria.StopInteraction = false;
+                    })));
                 } else {
                     Lunaria.Player.Animator.enabled = true;
                     Lunaria.StopMovement = Lunaria.StopInteraction = false;
