@@ -12,11 +12,9 @@ public class SceneHandler : LunariaBehaviour {
         PlayerPrefs.SetString("LevelName", gameObject.scene.name);
 
         foreach (SpawnLocation spawn in Spawns) {
-            spawn.Transition.Collider.enabled = true;
             if (spawn.LastLevelName == lastLevelName) {
                 Lunaria.Player.transform.position = spawn.Location;
                 Lunaria.Player.Renderer.flipX = spawn.FacingRight;
-                spawn.Transition.Inside = true;
             }
         }
     }

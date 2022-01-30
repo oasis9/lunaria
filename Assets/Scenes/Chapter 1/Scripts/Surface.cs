@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class Surface : LunariaBehaviour {
 
-    public string Name;
     public AudioClip[] SoundPool;
+    public double Delay;
 
     private bool Inside;
+    private double LastPlayTimestamp;
 
     void Start() {
 
@@ -13,8 +14,9 @@ public class Surface : LunariaBehaviour {
 
     void Update() {
         if (Inside
-            && Lunaria.Player.SoundEndTimestamp < Time.time
-            && Lunaria.Player.Rigidbody.velocity.x + Lunaria.Player.Rigidbody.velocity.y > 0) {
+            && LastPlayTimestamp < Time.time
+            && Lunaria.IsMoving()) {
+            LastPlayTimestamp = Time.time + Delay;
             Lunaria.Player.Play(SoundPool[Random.Range(0, SoundPool.Length)]);
         }
     }

@@ -6,7 +6,6 @@ public class Transition : LunariaBehaviour {
 
     public string SceneName;
     public Collider2D Collider;
-    public bool Inside;
     private AsyncOperation asyncOperation;
 
     public override void Awake() {
@@ -16,13 +15,7 @@ public class Transition : LunariaBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
-        if (!Inside && collider.tag == "Player") {
-            StartCoroutine("Load");
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D collider) {
-        if (collider.tag == "Player") Inside = false;
+        if (collider.tag == "Player") StartCoroutine("Load");
     }
 
     IEnumerator Load() {

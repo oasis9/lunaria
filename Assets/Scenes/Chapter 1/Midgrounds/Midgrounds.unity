@@ -156,7 +156,6 @@ MonoBehaviour:
   Lunaria: {fileID: 0}
   SceneName: Waterfall
   Collider: {fileID: 0}
-  Inside: 0
 --- !u!61 &69711384
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -164,7 +163,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69711382}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -191,11 +190,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69711382}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2652512, y: 0.1940328, z: -1.7043049}
+  m_LocalPosition: {x: 6.021313, y: 1.2112412, z: 20.96089}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2067294540}
-  m_RootOrder: 8
+  m_Father: {fileID: 604058357}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &225006182
 GameObject:
@@ -206,8 +205,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 225006183}
-  - component: {fileID: 225006185}
   - component: {fileID: 225006184}
+  - component: {fileID: 225006185}
+  - component: {fileID: 225006186}
   m_Layer: 2
   m_Name: Stone
   m_TagString: Untagged
@@ -223,11 +223,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 225006182}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.62044823, y: -2.857108, z: -69.88043}
+  m_LocalPosition: {x: 8.89, y: -2.017543, z: 0.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2067294540}
-  m_RootOrder: 6
+  m_Father: {fileID: 1241200515}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &225006184
 MonoBehaviour:
@@ -242,11 +242,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lunaria: {fileID: 0}
-  Name: Stone
   SoundPool:
   - {fileID: 8300000, guid: 7ce8830544dee2445ae883672d168239, type: 3}
   - {fileID: 8300000, guid: a2c590a04a6de784a9cc68181d535617, type: 3}
   - {fileID: 8300000, guid: 12fbab2e4853b294f8d31b45a8d3d4ff, type: 3}
+  Delay: 0.45
 --- !u!60 &225006185
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -291,13 +291,42 @@ PolygonCollider2D:
       - {x: -4.3884006, y: 0.647439}
       - {x: -5.56844, y: 0.42131257}
       - {x: -4.4813957, y: -0.5516789}
-      - {x: -7.434102, y: -3.5270624}
-      - {x: -9.763504, y: -4.7189574}
-      - {x: -9.713365, y: -5.880129}
-      - {x: -6.665865, y: -5.83986}
+      - {x: -8.046915, y: -3.8673759}
+      - {x: -11.317177, y: -5.2161345}
+      - {x: -11.287767, y: -5.830387}
+      - {x: -6.833892, y: -5.859414}
       - {x: -1.6983815, y: -1.225812}
       - {x: 0.58778536, y: -0.80901694}
       - {x: 9.821768, y: -0.7176855}
+--- !u!60 &225006186
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225006182}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -5.86416, y: 4.6061316}
+      - {x: -7.0225973, y: 4.1073437}
+      - {x: -6.257109, y: 3.2942586}
+      - {x: -5.4670625, y: 3.8306732}
 --- !u!1 &354435295
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,7 +440,7 @@ Transform:
   m_Children:
   - {fileID: 999919403}
   m_Father: {fileID: 2067294540}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &512868547
 BoxCollider2D:
@@ -524,7 +553,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.5
+  orthographic size: 5.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -554,6 +583,38 @@ Transform:
   - {fileID: 640539770}
   m_Father: {fileID: 2067294540}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &604058356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 604058357}
+  m_Layer: 0
+  m_Name: Transitions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &604058357
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604058356}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.756062, y: -1.0172085, z: -22.665195}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1087677604}
+  - {fileID: 69711385}
+  m_Father: {fileID: 2067294540}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &624474665
 GameObject:
@@ -966,11 +1027,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087677603}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2652512, y: 0.1940328, z: -1.7043049}
+  m_LocalPosition: {x: 6.021313, y: 1.2112412, z: 20.96089}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2067294540}
-  m_RootOrder: 7
+  m_Father: {fileID: 604058357}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1087677605
 MonoBehaviour:
@@ -987,7 +1048,6 @@ MonoBehaviour:
   Lunaria: {fileID: 0}
   SceneName: Lunarium
   Collider: {fileID: 0}
-  Inside: 0
 --- !u!61 &1087677606
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -995,7 +1055,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087677603}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -1039,12 +1099,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1223991473}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.16, y: 1.14, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalRotation: {x: -0, y: 0.011549352, z: -0, w: 0.9999333}
+  m_LocalPosition: {x: -18.292015, y: 2.28, z: 1.2114365}
+  m_LocalScale: {x: 0.99946684, y: 1, z: 1.0002669}
   m_Children: []
-  m_Father: {fileID: 2067294540}
-  m_RootOrder: 3
+  m_Father: {fileID: 1773673100}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1223991475
 MonoBehaviour:
@@ -1114,6 +1174,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1241200514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1241200515}
+  m_Layer: 0
+  m_Name: Surfaces
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1241200515
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241200514}
+  m_LocalRotation: {x: -0, y: 0.011549352, z: -0, w: 0.9999333}
+  m_LocalPosition: {x: -19.005972, y: -1.6791301, z: 0}
+  m_LocalScale: {x: 1.9989337, y: 2, z: 1.0002669}
+  m_Children:
+  - {fileID: 225006183}
+  - {fileID: 1759908881}
+  m_Father: {fileID: 1773673100}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1483430114
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,7 +1485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lunaria: {fileID: 0}
-  Speed: {x: 3.5, y: 3.5}
+  Speed: {x: 3.8, y: 3.8}
   ScaleRange: {x: 0.8, y: 1.2}
   Sprites:
     Sprites:
@@ -1552,6 +1644,198 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1759908880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1759908881}
+  - component: {fileID: 1759908886}
+  - component: {fileID: 1759908885}
+  - component: {fileID: 1759908884}
+  - component: {fileID: 1759908883}
+  - component: {fileID: 1759908882}
+  m_Layer: 2
+  m_Name: Dirt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1759908881
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759908880}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.82, y: -2.017543, z: 0.04}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1241200515}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &1759908882
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759908880}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.2039631, y: -1.6520882}
+      - {x: 12.109777, y: -1.5953871}
+      - {x: 1.2967668, y: -1.1169732}
+      - {x: -1.5593518, y: -1.8733044}
+      - {x: -3.7829275, y: -3.566711}
+      - {x: -5.617445, y: -5.935685}
+--- !u!60 &1759908883
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759908880}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 6.0804677, y: 1.1123803}
+      - {x: 5.8977747, y: 3.4053664}
+      - {x: 3.9484553, y: 4.578784}
+      - {x: -1.9418857, y: 4.367315}
+      - {x: 1.536283, y: 3.6334536}
+      - {x: 2.6273303, y: 2.6300516}
+      - {x: 3.1889505, y: 0.84097314}
+      - {x: 4.3617196, y: 0.948751}
+      - {x: 5.144105, y: 0.5324378}
+      - {x: 6.779446, y: 0.40153092}
+--- !u!60 &1759908884
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759908880}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -6.0010242, y: -0.95862365}
+      - {x: -6.631443, y: 1.076506}
+      - {x: -5.4007235, y: 1.2965586}
+      - {x: -4.7640076, y: 2.858179}
+      - {x: -3.342343, y: 2.8270547}
+      - {x: -2.6097791, y: 3.5032637}
+      - {x: -4.319181, y: 4.0870786}
+      - {x: -5.628616, y: 2.8114147}
+      - {x: -7.506754, y: 2.9225872}
+      - {x: -7.45021, y: 2.4599006}
+      - {x: -6.4360056, y: -0.9573772}
+      - {x: -11.752079, y: -4.709874}
+      - {x: -7.6882434, y: -2.6361709}
+--- !u!60 &1759908885
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759908880}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.16710222, y: 1.3377796}
+      - {x: -2.7291665, y: 2.0870407}
+      - {x: -0.4884861, y: 1.095387}
+      - {x: 0.18348229, y: 0.21345043}
+--- !u!114 &1759908886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759908880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ca5c3472369f646987c8d47d76acc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lunaria: {fileID: 0}
+  SoundPool:
+  - {fileID: 8300000, guid: 4d2b5f6060cf91045bad3073369fdbda, type: 3}
+  - {fileID: 8300000, guid: d6a2836593dd8d94e82b653509f2b201, type: 3}
+  - {fileID: 8300000, guid: d8708ae4b2fdc044b86f0909d759b796, type: 3}
+  - {fileID: 8300000, guid: ded25f999ed1d714cafdbabf3ba5a330, type: 3}
+  - {fileID: 8300000, guid: 4b69c4e0d775c4344886bdea28228f79, type: 3}
+  - {fileID: 8300000, guid: 19db1692c6199714f8f936383747c81e, type: 3}
+  - {fileID: 8300000, guid: 417d5834303f3014f81b66ec63f22d55, type: 3}
+  - {fileID: 8300000, guid: 3f94a11eb971dbb449bbdefb9f2eea0d, type: 3}
+  - {fileID: 8300000, guid: bb9aedd5fef623f45a002f96829fa2d2, type: 3}
+  Delay: 0.45
 --- !u!1 &1773673097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1654,10 +1938,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773673097}
   m_LocalRotation: {x: -0, y: -0.011549352, z: -0, w: 0.9999333}
-  m_LocalPosition: {x: 0.011548643, y: 0, z: -0.9998666}
+  m_LocalPosition: {x: 0.011548643, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 712942631}
+  - {fileID: 1241200515}
+  - {fileID: 1223991474}
   m_Father: {fileID: 2067294540}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -1.323, z: 0}
@@ -1812,7 +2098,7 @@ Transform:
   m_Children:
   - {fileID: 624474666}
   m_Father: {fileID: 2067294540}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1966715965
 BoxCollider2D:
@@ -1921,12 +2207,9 @@ Transform:
   - {fileID: 519420032}
   - {fileID: 1773673100}
   - {fileID: 1711052481}
-  - {fileID: 1223991474}
   - {fileID: 1966715964}
   - {fileID: 512868546}
-  - {fileID: 225006183}
-  - {fileID: 1087677604}
-  - {fileID: 69711385}
+  - {fileID: 604058357}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1945,10 +2228,8 @@ MonoBehaviour:
   Lunaria: {fileID: 2067294539}
   Spawns:
   - LastLevelName: Lunarium
-    Location: {x: -9.48, y: -7.4}
+    Location: {x: -9.48, y: -7.2}
     FacingRight: 1
-    Transition: {fileID: 1087677605}
   - LastLevelName: Waterfall
-    Location: {x: 12.1, y: -2.68}
+    Location: {x: 11.8, y: -2.68}
     FacingRight: 0
-    Transition: {fileID: 69711383}
