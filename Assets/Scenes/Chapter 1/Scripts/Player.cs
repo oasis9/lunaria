@@ -10,10 +10,6 @@ public class Player : LunariaBehaviour {
     public Vector2 ScaleRange = new Vector2(0.3f, 0.3f);
     public SpriteBatch Sprites = new SpriteBatch();
     public SpriteRenderer PinP;
-    public KeyCode[] MoveUp = { KeyCode.UpArrow, KeyCode.W };
-    public KeyCode[] MoveLeft = { KeyCode.LeftArrow, KeyCode.A };
-    public KeyCode[] MoveDown = { KeyCode.DownArrow, KeyCode.S };
-    public KeyCode[] MoveRight = { KeyCode.RightArrow, KeyCode.D };
     public StepSounds[] StepSounds = new StepSounds[0];
 
     // Components
@@ -27,32 +23,24 @@ public class Player : LunariaBehaviour {
 
     public virtual void Start() {
         // Components
-        if (Renderer == null) {
-            Renderer = GetComponent<SpriteRenderer>();
-        }
-        if (Rigidbody == null) {
-            Rigidbody = GetComponent<Rigidbody2D>();
-        }
-        if (Animator == null) {
-            Animator = GetComponent<Animator>();
-        }
+        if (Renderer == null) Renderer = GetComponent<SpriteRenderer>();
+        if (Rigidbody == null) Rigidbody = GetComponent<Rigidbody2D>();
+        if (Animator == null) Animator = GetComponent<Animator>();
     }
 
     public virtual void Update() {
-        if (Lunaria.Interaction != null) return;
-
-        Rigidbody.velocity = Vector2.zero;
-
         MovePlayer();
     }
 
     private void MovePlayer() {
+        Rigidbody.velocity = Vector2.zero;
+
         if (Animator.GetInteger("State") != (int)AnimationState.Idle) Animator.SetInteger("State", (int)AnimationState.Idle);
 
-        bool movingUp = MoveUp.Any(key => Input.GetKey(key));
-        bool movingLeft = MoveLeft.Any(key => Input.GetKey(key));
-        bool movingDown = MoveDown.Any(key => Input.GetKey(key));
-        bool movingRight = MoveRight.Any(key => Input.GetKey(key));
+        bool movingUp = Lunaria.IsMovingUp();
+        bool movingLeft = Lunaria.IsMovingLeft();
+        bool movingDown = Lunaria.IsMovingDown();
+        bool movingRight = Lunaria.IsMovingRight();
         if (!(movingUp && movingDown)) {
             if (movingUp) Move(Vector2.up);
             else if (movingDown) Move(Vector2.down);
@@ -67,23 +55,31 @@ public class Player : LunariaBehaviour {
             }
         }
 
+        HandleInteraction();
         FlipPlayer();
         ScalePlayer();
         FocusCamera();
         PlayStepSounds();
     }
 
+    private void HandleInteraction() {
+        if (Lunaria.OngoingDialogue != null && Lunaria.DidStartDialogueProgression()) Lunaria.OngoingDialogue.Next();
+    }
+
     private void FlipPlayer() {
-        if (MoveLeft.Any(key => Input.GetKeyDown(key))) Renderer.flipX = false;
-        if (MoveRight.Any(key => Input.GetKeyDown(key))) Renderer.flipX = true;
+        if (Lunaria.DidStartMovingLeft()) Renderer.flipX = false;
+        if (Lunaria.DidStartMovingRight()) Renderer.flipX = true;
     }
 
     private void ScalePlayer() {
         float scale = ScaleRange.x + (ScaleRange.y - ScaleRange.x)
             * Mathf.Clamp(
-            (Lunaria.GameCamera.BackgroundBounds.size.y - transform.position.y + Lunaria.GameCamera.BackgroundBounds.size.y / 2)
-            / Lunaria.GameCamera.BackgroundBounds.size.y, 0, 1);
-        transform.localScale = new Vector2(scale, scale);
+                (Lunaria.Background.Bounds.size.y / 2 - transform.position.y)
+                / Lunaria.Background.Bounds.size.y, 0, 1);
+        //Debug.Log("...");
+        //Debug.Log("");
+        //Debug.Log(scale);
+        Renderer.transform.localScale = new Vector2(scale, scale);
     }
 
     private void FocusCamera() {
@@ -92,7 +88,7 @@ public class Player : LunariaBehaviour {
     }
 
     private void PlayStepSounds() {
-        if ((hit = Physics2D.Raycast(transform.position, transform.forward, 1000f)).collider != null) {
+        if (PinP != null && (hit = Physics2D.Raycast(transform.position, transform.forward, 1000f)).collider != null) {
             Debug.Log("Potato");
             SpriteRenderer backgroundRenderer = hit.collider.GetComponent<SpriteRenderer>();
             Texture2D backgroundTexture = backgroundRenderer.sprite.texture;
