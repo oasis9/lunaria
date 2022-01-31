@@ -23,10 +23,10 @@ public class Player : LunariaBehaviour {
 
     public virtual void Start() {
         // Components
-        if (Renderer == null) Renderer = GetComponent<SpriteRenderer>();
-        if (Rigidbody == null) Rigidbody = GetComponent<Rigidbody2D>();
-        if (Animator == null) Animator = GetComponent<Animator>();
-        if (AudioSource == null) AudioSource = GetComponent<AudioSource>();
+        Set(ref Renderer);
+        Set(ref Rigidbody);
+        Set(ref Animator);
+        Set(ref AudioSource);
     }
 
     public virtual void Update() {
@@ -148,7 +148,7 @@ public class Player : LunariaBehaviour {
     void Move(Vector2 velocity) {
         Rigidbody.velocity += velocity * Speed;
 
-        Animator.SetInteger("State", (int) AnimationState.Walking);
+        Animator.SetInteger("State", (int)AnimationState.Walking);
     }
 
     public void Play(AudioClip audioClip) {

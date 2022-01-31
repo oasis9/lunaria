@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Orderer : MonoBehaviour {
+public class Orderer : LunariaBehaviour {
 
     public float Threshold;
     public GameObject OnObject;
@@ -10,7 +10,7 @@ public class Orderer : MonoBehaviour {
     public SpriteRenderer Renderer;
 
     void Start() {
-        if (Renderer == null) Renderer = GetComponent<SpriteRenderer>();
+        Set(ref Renderer);
     }
 
     void Update() {

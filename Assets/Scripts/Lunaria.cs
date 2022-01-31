@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using UnityEngine;
 
-public class Lunaria : MonoBehaviour {
+public class Lunaria : LunariaBehaviour {
     public GameCamera GameCamera;
     public Player Player;
     public Background Background;
@@ -19,10 +19,16 @@ public class Lunaria : MonoBehaviour {
     public bool StopDialogueProgression = false;
     public Dialogue OngoingDialogue { get; private set; }
 
-    void Awake() {
-        GameCamera = GetComponentInChildren<GameCamera>();
-        Player = GetComponentInChildren<Player>();
-        Background = GetComponentInChildren<Background>();
+    public Lunaria() {
+        Lunaria = this;
+    }
+
+    public override void Awake() {
+        base.Awake();
+
+        SetFromChildren(ref GameCamera);
+        SetFromChildren(ref Player);
+        SetFromChildren(ref Background);
     }
 
     void Update() {
@@ -77,6 +83,13 @@ public class Lunaria : MonoBehaviour {
     }
     public bool IsMovingRight() {
         return IsMoving(MoveRight);
+    }
+
+    public bool DidStartMouseDown() {
+        return !StopInteraction && Input.GetMouseButtonDown(0);
+    }
+    public bool IsMouseDown() {
+        return !StopInteraction && Input.GetMouseButton(0);
     }
 
     public bool DidStartInteract() {

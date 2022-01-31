@@ -9,7 +9,7 @@ public class Afterglow : LunariaBehaviour {
     private float interpolator;
 
     void Start() {
-        if (Renderer == null) Renderer = GetComponent<SpriteRenderer>();
+        Set(ref Renderer);
     }
 
     void Update() {

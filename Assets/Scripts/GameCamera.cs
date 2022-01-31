@@ -1,4 +1,3 @@
-using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
 
 public class GameCamera : LunariaBehaviour {
@@ -12,9 +11,9 @@ public class GameCamera : LunariaBehaviour {
     public override void Awake() {
         base.Awake();
 
-        if (Dialogue == null) Dialogue = GetComponentInChildren<SpriteRenderer>();
-        if (Camera == null) Camera = GetComponent<Camera>();
-        if (AudioListener == null) AudioListener = GetComponent<AudioListener>();
+        SetFromChildren(ref Dialogue);
+        Set(ref Camera);
+        Set(ref AudioListener);
     }
 
     public virtual void Start() {

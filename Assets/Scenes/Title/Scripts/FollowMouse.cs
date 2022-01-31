@@ -9,8 +9,5 @@ public class FollowMouse : LunariaBehaviour {
     }
 
     void Update() {
-        Vector3 worldPoint = Lunaria.GameCamera.Camera.ScreenToWorldPoint(Input.mousePosition);
-        worldPoint.z = 0;
-        transform.position = worldPoint;
     }
 }
