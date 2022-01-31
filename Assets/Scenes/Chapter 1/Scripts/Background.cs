@@ -17,7 +17,7 @@ public class Background : LunariaBehaviour {
             Renderer.size.y * Renderer.transform.localScale.y / 2));
     }
 
-    void Start() {
+    public virtual void Start() {
         edgeCollider = gameObject.AddComponent(typeof(EdgeCollider2D)) as EdgeCollider2D;
         edgeCollider.points = new Vector2[] {
             new Vector2(
@@ -43,7 +43,17 @@ public class Background : LunariaBehaviour {
         };
     }
 
-    void Update() {
+    public void FitToCamera() {
+        transform.localScale = new Vector3(1, 1, 1);
 
+        float width = Renderer.sprite.bounds.size.x;
+        float height = Renderer.sprite.bounds.size.y;
+
+        float worldScreenHeight = Lunaria.GameCamera.Camera.orthographicSize * 2;
+        float worldScreenWidth = worldScreenHeight / Screen.height * Screen.width;
+
+        transform.localScale = new Vector2(
+            worldScreenWidth / width,
+            worldScreenHeight / height);
     }
 }

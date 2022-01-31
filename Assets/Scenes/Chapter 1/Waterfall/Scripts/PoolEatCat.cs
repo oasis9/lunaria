@@ -17,6 +17,7 @@ public class PoolEatCat : LunariaBehaviour {
         playerTransform = Lunaria.Player.transform;
         playerRenderer = Lunaria.Player.Renderer;
         playerMask = Lunaria.Player.GetComponentInChildren<SpriteMask>();
+        playerMask.enabled = false;
 
         //int height = playerRenderer.sprite.texture.height / 4;
 

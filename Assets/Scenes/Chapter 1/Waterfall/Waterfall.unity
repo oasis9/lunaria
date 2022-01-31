@@ -362,6 +362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lunaria: {fileID: 0}
   Camera: {fileID: 0}
+  AudioListener: {fileID: 0}
   Dialogue: {fileID: 0}
   Move: 1
 --- !u!81 &315153423
@@ -1951,8 +1952,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671685537}
   m_LocalRotation: {x: -0, y: 0.00915704, z: -0, w: 0.99995816}
-  m_LocalPosition: {x: 2.94, y: 1.96, z: 84.8}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: 2.94, y: 2.2982, z: 84.8}
+  m_LocalScale: {x: 0.5, y: 0.53215, z: 1}
   m_Children: []
   m_Father: {fileID: 834699311}
   m_RootOrder: 1

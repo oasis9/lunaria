@@ -24,6 +24,5 @@ public class Transition : LunariaBehaviour {
         asyncOperation.allowSceneActivation = true;
         yield return asyncOperation;
         SceneManager.UnloadSceneAsync(currentScene);
-
     }
 }

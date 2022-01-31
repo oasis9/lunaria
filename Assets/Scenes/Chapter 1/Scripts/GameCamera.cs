@@ -1,17 +1,23 @@
+using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
 
 public class GameCamera : LunariaBehaviour {
 
     public Camera Camera;
+    public AudioListener AudioListener;
     public Bounds CameraMovementBounds { get; private set; }
     public SpriteRenderer Dialogue;
     public bool Move = true;
 
-    void Start() {
+    public override void Awake() {
+        base.Awake();
+
         if (Dialogue == null) Dialogue = GetComponentInChildren<SpriteRenderer>();
+        if (Camera == null) Camera = GetComponent<Camera>();
+        if (AudioListener == null) AudioListener = GetComponent<AudioListener>();
+    }
 
-        Camera = GetComponent<Camera>();
-
+    public virtual void Start() {
         float orthographicSize = Camera.orthographicSize;
         float height = 2f * Camera.orthographicSize;
         float width = height * Camera.aspect;
@@ -41,9 +47,5 @@ public class GameCamera : LunariaBehaviour {
                 -CameraMovementBounds.size.y,
                 CameraMovementBounds.size.y),
             transform.position.z);
-    }
-
-    void Update() {
-
     }
 }
